@@ -1,5 +1,6 @@
 package com.example.countryapp
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.countryapp.model.CountryResponseItem
@@ -28,6 +29,7 @@ class MainViewModel:ViewModel() {
 
             override fun onFailure(call: Call<CountryResponse>, t: Throwable) {
                 countriesMutableLiveData.value=Result.Failure(t)
+                Log.d("ViewModel",t.message.toString())
             }
 
         })

@@ -40,7 +40,9 @@ class CountryAdapter(private var countries: ArrayList<CountryResponseItem>) :
         //one country only
         fun bindCountry(countryResponseItem: CountryResponseItem) {
             if (countryResponseItem.name.common == "Israel") {
-            } else {
+
+            }
+            else {
                 itemView.txtCapital.text = "Capital: ${countryResponseItem.capital[0]}"
                 itemView.txtCountry.text = countryResponseItem.name.common
                 itemView.txtRegion.text = "Region: ${countryResponseItem.region}"

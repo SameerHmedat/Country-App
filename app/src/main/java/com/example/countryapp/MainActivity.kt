@@ -2,6 +2,7 @@ package com.example.countryapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
                     txtError.visibility = View.VISIBLE
                     progressError.visibility = View.GONE
                     rcCountry.visibility = View.GONE
+                    Log.d("Failure","Failure")
+
                 }
 
                 Result.Loading -> {

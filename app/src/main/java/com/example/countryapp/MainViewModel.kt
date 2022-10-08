@@ -3,7 +3,6 @@ package com.example.countryapp
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.countryapp.model.CountryResponseItem
 import com.example.countryapp.response.CountryResponse
 import com.example.countryapp.service.CountryApiService
 import retrofit2.Call

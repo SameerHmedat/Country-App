@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface CountryApi {
 
-    @GET("v3.1/region/europe")
+    @GET("v3.1/all")
     fun getCountry():Call<CountryResponse>
 
 }

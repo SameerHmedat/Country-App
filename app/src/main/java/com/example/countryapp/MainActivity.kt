@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.countryapp.model.CountryResponseItem
@@ -18,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         viewModel.countriesMutableLiveData.observe(this@MainActivity) { result ->
             when (result) {
@@ -40,6 +38,8 @@ class MainActivity : AppCompatActivity() {
                     txtError.visibility = View.GONE
                     rcCountry.visibility = View.VISIBLE
                     countryAdapter.setCountryList(result.countries)
+                    Log.d("Numbers of countries ",countryAdapter.countries.size.toString())
+
                 }
             }
 

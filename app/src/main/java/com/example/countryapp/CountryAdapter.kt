@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.countryapp.model.CountryResponseItem
 import kotlinx.android.synthetic.main.country_item_row.view.*
 
-class CountryAdapter(private var countries: ArrayList<CountryResponseItem>) :
+class CountryAdapter( var countries: ArrayList<CountryResponseItem>) :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
 
@@ -30,8 +30,8 @@ class CountryAdapter(private var countries: ArrayList<CountryResponseItem>) :
 
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setCountryList(countries: ArrayList<CountryResponseItem>?) {
-        this.countries = countries!!
+    fun setCountryList(countries: ArrayList<CountryResponseItem>) {
+        this.countries = countries
         notifyDataSetChanged()
     }
 
@@ -39,15 +39,22 @@ class CountryAdapter(private var countries: ArrayList<CountryResponseItem>) :
     class CountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //one country only
         fun bindCountry(countryResponseItem: CountryResponseItem) {
-            if (countryResponseItem.name.common == "Israel") {
 
-            }
-            else {
-                itemView.txtCapital.text = "Capital: ${countryResponseItem.capital[0]}"
-                itemView.txtCountry.text = countryResponseItem.name.common
-                itemView.txtRegion.text = "Region: ${countryResponseItem.region}"
-                Glide.with(itemView).load(countryResponseItem.flags.png).into(itemView.imgCountry)
-            }
+         //   countryResponseItem?.let {
+                if (countryResponseItem.name!!.common == "Israel") {
+
+                }
+                else {
+                    countryResponseItem.capital?.let { list ->
+                        itemView.txtCapital.text = "Capital: ${list[0]}"
+                    }
+
+                    itemView.txtCountry.text = countryResponseItem.name.common
+                    itemView.txtRegion.text = "Region: ${countryResponseItem.region}"
+                    Glide.with(itemView).load(countryResponseItem.flags!!.png).into(itemView.imgCountry)
+                }
+
+       //     }
         }
 
     }
